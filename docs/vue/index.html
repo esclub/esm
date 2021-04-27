@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+</head>
+<body>
+<div id="app" style="display:none;">
+    name: {{name}}
+    <br />
+    query: {{query}}
+    <a href="?id=1" >query link</a>
+    <el-button @click="onClickRandomButton" >随机数：{{randomText}}</el-button>
+    <hr />
+    <my-counter v-model="count" ></my-counter>
+</div>
+<link rel="stylesheet" href="https://cdn.skypack.dev/element-ui@2.15.1/lib/theme-chalk/index.css">
+<!-- 还可以使用 esm.load("https://cdn.skypack.dev/element-ui@2.15.1/lib/theme-chalk/index.css")  -->
+<script type="module">
+import esm from "https://cdn.skypack.dev/@esclub/esm@0.0.2"
+import qs from "https://cdn.skypack.dev/query-string@7.0.0"
+import Vue from "https://cdn.skypack.dev/vue@2.0.0"
+import ElementUI from "https://cdn.skypack.dev/element-ui@2.15.1"
+import MyCounter from "./com/counter/index.js"
+
+Vue.use(ElementUI)
+Vue.component(MyCounter.name, MyCounter)
+// 数据
+const data = {
+    name: "goclub.vip",
+    query: qs.parse(location.search),
+    randomText: "",
+    count: 0,
+}
+// 计算属性
+const computed = {
+
+}
+// 方法
+const methods = {
+    onClickRandomButton: function() {
+        this.setRandomText()
+    },
+    setRandomText: function() {
+        const vm = this
+        vm.randomText = String(Math.random())
+    }
+}
+const beforeMount = function () {
+
+}
+const vm = new Vue({
+    el: "#app",
+    data,
+    computed,
+    methods,
+    beforeMount,
+})
+vm.$el.style.display = "block"
+</script>
+</body>
+</html>

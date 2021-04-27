@@ -1,0 +1,23 @@
+{
+  "name": "@esclub/esm",
+  "version": "0.0.2",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esclub/esm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "files": ["index.js"],
+  "bugs": {
+    "url": "https://github.com/esclub/esm/issues"
+  },
+  "homepage": "https://github.com/esclub/esm#readme"
+}
